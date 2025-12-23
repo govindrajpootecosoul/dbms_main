@@ -8,13 +8,6 @@ yarn.lock
 
 # Environment variables
 
-.env.local
-.env.development
-.env.test
-.env.production
-.env*.local
-# Keep .env.example files
-!.env.example
 
 # Logs
 logs/
@@ -87,10 +80,6 @@ Desktop.ini
 .yarn-integrity
 
 # dotenv environment variable files
-.env.development.local
-.env.test.local
-.env.production.local
-.env.local
 
 # Vercel
 .vercel
