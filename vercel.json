@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "my_database_portal_backend/api/index.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/my_database_portal_backend/api/index.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/my_database_portal_backend/api/index.js"
+    }
+  ],
+  "functions": {
+    "my_database_portal_backend/api/index.js": {
+      "maxDuration": 30
+    }
+  }
+}
+

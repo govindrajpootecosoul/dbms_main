@@ -7,16 +7,17 @@ dotenv.config();
 
 const router = express.Router();
 
-// Validate JWT_SECRET is set
+// Validate JWT_SECRET is set (warn only, don't exit in serverless)
 if (!process.env.JWT_SECRET) {
-  console.error('❌ ERROR: JWT_SECRET is not set in environment variables!');
-  console.error('Please create a .env file with JWT_SECRET=your_secret_key');
+  console.error('❌ WARNING: JWT_SECRET is not set in environment variables!');
+  console.error('Please set JWT_SECRET in Vercel environment variables');
+  console.error('This will cause authentication to fail');
 }
 
 // Generate JWT Token
 const generateToken = (userId) => {
   if (!process.env.JWT_SECRET) {
-    throw new Error('JWT_SECRET is not configured. Please set it in your .env file.');
+    throw new Error('JWT_SECRET is not configured. Please set it in Vercel environment variables or .env file.');
   }
   return jwt.sign({ userId }, process.env.JWT_SECRET, { expiresIn: '30d' });
 };
