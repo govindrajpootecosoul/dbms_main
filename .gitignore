@@ -4,13 +4,12 @@
 node_modules/
 **/node_modules/
 
-# Environment variables
-.env
+# Environment variables (allow committed .env, ignore machine-specific)
 .env.local
 .env*.local
-**/.env
 **/.env.local
-# Keep .env.example files
+# Keep .env and .env.example files
+!.env
 !.env.example
 
 # Build outputs
